@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+
+# Workspace folders
+WORKSPACE_FOLDER = '/Users/marcosmr/Development/DEV_EXECUTIONS/cedar-curation/workspace'
+DATA_FOLDER = 'data'
+SAMPLES_FOLDER = 'samples'
+SOURCE_SAMPLES_FOLDER = 'source'
+#FILTERED_SAMPLES_FOLDER = 'filtered'
+
+# Data download
+NCBI_DOWNLOAD_URL = 'https://ftp.ncbi.nih.gov/biosample/biosample_set.xml.gz'
+NCBI_SAMPLES_FOLDER_DEST = WORKSPACE_FOLDER + '/' + DATA_FOLDER + '/' + SAMPLES_FOLDER + '/' + SOURCE_SAMPLES_FOLDER
+NCBI_SAMPLES_FILE_DEST = 'biosample_set.xml.gz'
+
+### NCBI
+
+# NCBI_SAMPLES_FOLDER = 'ncbi_samples'
+# NCBI_SAMPLES_FILE = '2018-03-09-biosample_set.xml.gz'
+
+### EBI
+# EBI_SAMPLES_FOLDER = 'ebi_samples'
+# EBI_SAMPLES_FILE = '2018-03-09-ebi_samples.zip'
+
+### Filtering
+# NCBI_SAMPLES_ORIGINAL_PATH = DATA_FOLDER + '/' + SAMPLES_FOLDER + '/' + NCBI_SAMPLES_FOLDER + '/' + ORIGINAL_FOLDER
+# NCBI_SAMPLES_ORIGINAL_FILE_PATH = NCBI_SAMPLES_ORIGINAL_PATH + '/' + NCBI_SAMPLES_FILE
+# NCBI_SAMPLES_FILTERED_PATH = DATA_FOLDER + '/' + SAMPLES_FOLDER + '/' + NCBI_SAMPLES_FOLDER + '/' + FILTERED_FOLDER
+#
+# EBI_SAMPLES_ORIGINAL_PATH = DATA_FOLDER + '/' + SAMPLES_FOLDER + '/' + EBI_SAMPLES_FOLDER + '/' + ORIGINAL_FOLDER
+# EBI_SAMPLES_ORIGINAL_FILE_PATH = EBI_SAMPLES_ORIGINAL_PATH + '/' + EBI_SAMPLES_FILE
+# EBI_SAMPLES_FILTERED_PATH = DATA_FOLDER + '/' + SAMPLES_FOLDER + '/' + EBI_SAMPLES_FOLDER + '/' + FILTERED_FOLDER
+
+
+SERVER = 'https://valuerecommender.metadatacenter.orgx'
+TEMPLATE_ID = 'https://repo.metadatacenter.orgx/templates/cd03286e-96f4-47f9-a855-f46329b16920'

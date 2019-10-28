@@ -11,8 +11,10 @@ def log_progress(count, block_size, total_size):
     progress_size = int(count * block_size)
     speed = int(progress_size / (1024 * duration))
     percent = int(count * block_size * 100 / total_size)
-    sys.stdout.write("\r...%d%%, %d MB, %d KB/s, %d seconds passed" %
-                     (percent, progress_size / (1024 * 1024), speed, duration))
+    # slow down the rate at which the messages are printed
+    if count % 1000 == 0 or percent == 100:
+        sys.stdout.write("...%d%%, %d MB, %d KB/s, %d seconds passed\r" %
+                         (percent, progress_size / (1024 * 1024), speed, duration))
     sys.stdout.flush()
 
 

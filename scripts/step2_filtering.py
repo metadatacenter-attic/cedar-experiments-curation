@@ -9,6 +9,7 @@ import os
 import constants
 import ncbi_util
 import gzip
+import util
 
 INPUT_FILE = constants.NCBI_FILTER_INPUT_FILE
 OUTPUT_FILE = constants.NCBI_FILTER_OUTPUT_FILE
@@ -102,7 +103,7 @@ def has_minimum_relevant_attributes_count(sample, min_count=2):
         return False
 
 
-def main():
+def filter_samples():
     if not os.path.exists(os.path.dirname(OUTPUT_FILE)):
         os.makedirs(os.path.dirname(OUTPUT_FILE))
     print('Input file: ' + INPUT_FILE)
@@ -120,8 +121,8 @@ def main():
                 node_xml = node.toxml()
                 processed_samples_count = processed_samples_count + 1
                 if processed_samples_count % 5000 == 0:
-                        print('Processed samples: ' + str(processed_samples_count))
-                        print('Selected samples: ' + str(selected_samples_count))
+                    print('Processed samples: ' + str(processed_samples_count))
+                    print('Selected samples: ' + str(selected_samples_count))
                 if is_homo_sapiens_sample(node_xml):
                     if has_minimum_relevant_attributes_count(node_xml, constants.NCBI_FILTER_MIN_RELEVANT_ATTS):
                         f.write('\n' + node.toxml())
@@ -133,6 +134,14 @@ def main():
     print('Finished processing NCBI samples')
     print('- Total samples processed: ' + str(processed_samples_count))
     print('- Total samples selected: ' + str(selected_samples_count))
+
+
+def main():
+    if os.path.exists(OUTPUT_FILE):
+        if util.confirm("The destination file already exist. Do you want to overwrite it [y/n]?"):
+            filter_samples()
+    else:
+        filter_samples()
 
 
 if __name__ == "__main__": main()

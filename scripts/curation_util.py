@@ -44,3 +44,15 @@ def get_value_recommendation(server, template_id, target_field_path, populated_f
     return json.loads(recommendation_response.text)
 
 
+def save_to_folder(instance, instance_number, output_path, output_base_file_name):
+    """
+    Saves an instance to a local folder
+    :param instance:
+    :param instance_number: Number used to name the output files
+    :param output_path:
+    :param output_base_file_name:
+    """
+    output_file_path = output_path + "/" + output_base_file_name + "_" + str(instance_number) + '.json'
+
+    with open(output_file_path, 'w') as output_file:
+        json.dump(instance, output_file, indent=4)

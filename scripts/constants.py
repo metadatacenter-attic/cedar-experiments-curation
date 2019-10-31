@@ -1,10 +1,18 @@
 #!/usr/bin/python3
 
+# Server
+SERVER = 'https://valuerecommender.metadatacenter.orgx'
+#TEMPLATE_ID = 'https://repo.metadatacenter.orgx/templates/01e71943-7c49-49f3-a6d9-8418b886e154'
+
+# Base folder
+#BASE_FOLDER = '/Users/marcosmr/Development/CEDAR/cedar-experiments-curation' # for IntelliJ execution
+BASE_FOLDER = '.' # for Jupyter execution
+
 # Resources
-RESOURCES_FOLDER = 'resources'
+RESOURCES_FOLDER = BASE_FOLDER + '/' + 'resources'
 
 # Workspace
-WORKSPACE_FOLDER = 'workspace'
+WORKSPACE_FOLDER = BASE_FOLDER + '/' + 'workspace'
 SAMPLES_FOLDER = 'samples'
 SOURCE_SAMPLES_FOLDER = 'source'
 FILTERED_SAMPLES_FOLDER = 'filtered'
@@ -21,6 +29,19 @@ NCBI_FILTER_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/' + 'biosample_filtered.
 NCBI_FILTER_RELEVANT_ATTS = ['sex', 'tissue', 'disease', 'cell_type', 'cell type', 'cell_line', 'cell line', 'ethnicity']
 NCBI_FILTER_MIN_RELEVANT_ATTS = 3
 
+# Instances generation
+NCBI_INSTANCES_TRAINING_SET_SIZE = 222797 # 85% of 262,114
+NCBI_INSTANCES_TESTING_SET_SIZE = 39317 # 15% of 262,114
+NCBI_INSTANCES_MAX_FILES_PER_FOLDER = 10000
+NCBI_INSTANCES_INPUT_PATH = NCBI_FILTER_OUTPUT_FILE
+NCBI_INSTANCES_OUTPUT_BASE_PATH = WORKSPACE_FOLDER + '/cedar_instances/ncbi_cedar_instances'
+NCBI_INSTANCES_TRAINING_BASE_PATH = NCBI_INSTANCES_OUTPUT_BASE_PATH + '/training'
+NCBI_INSTANCES_TESTING_BASE_PATH = NCBI_INSTANCES_OUTPUT_BASE_PATH + '/testing'
+NCBI_INSTANCES_EXCLUDE_IDS = False
+NCBI_INSTANCES_EXCLUDED_IDS_FILE_PATH = RESOURCES_FOLDER + 'excluded_ids.txt'
+NCBI_INSTANCES_OUTPUT_BASE_FILE_NAME = 'ncbi_biosample_instance'
+NCBI_INSTANCES_EMPTY_BIOSAMPLE_INSTANCE_PATH = RESOURCES_FOLDER + '/cedar_artifacts/ncbi_biosample_empty_instance.json'
 
-SERVER = 'https://valuerecommender.metadatacenter.orgx'
-TEMPLATE_ID = 'https://repo.metadatacenter.orgx/templates/cd03286e-96f4-47f9-a855-f46329b16920'
+
+
+
